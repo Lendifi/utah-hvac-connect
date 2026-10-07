@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You — Utah HVAC Connect</title>
+  <meta name="description" content="Thanks for your HVAC match request.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">UH</span>
+        <span>Utah HVAC Connect</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menu" id="navToggle">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="quote.html">Get Help</a>
+        <a href="for-contractors.html">For Contractors</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="quote.html" class="nav-cta">Get connected →</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="thanks-wrap">
+      <div class="success-icon">✓</div>
+      <h1>Thank you</h1>
+      <p>
+        In production, licensed pros in your area would reach out about your request
+        during your preferred window. This draft site does not save or forward leads.
+      </p>
+      <div class="draft-banner" style="text-align:left;">Draft mode — no lead was stored or emailed.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:1.5rem;">
+        <a href="quote.html" class="btn btn-primary">Submit another (test)</a>
+        <a href="index.html" class="btn btn-secondary">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Utah HVAC Connect</div>
+          <p class="footer-domain"><a href="https://utahhvacconnect.com">utahhvacconnect.com</a></p>
+          <p class="footer-disclaimer">
+            We match homeowners with licensed Utah HVAC contractors. We are not an HVAC contractor, do not perform HVAC work, and do not provide quotes.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Homeowners</h4>
+          <a href="quote.html">Get connected</a>
+          <a href="index.html#how-it-works">How it works</a>
+          <a href="privacy.html">Privacy policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contractors</h4>
+          <a href="for-contractors.html">Partner with us</a>
+          <a href="mailto:samueljohnsen3@gmail.com">Request info</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Utah HVAC Connect. All rights reserved.</span>
+        <span class="footer-placeholder"><!-- Brand: Utah HVAC Connect · utahhvacconnect.com. Matchmaker positioning — CTAs connect homeowners with licensed shops; we do not provide quotes. --></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Connected — Utah HVAC Connect</title>
+  <meta name="description" content="Request a match with licensed Utah HVAC contractors. Takes about 2 minutes.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">UH</span>
+        <span>Utah HVAC Connect</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menu" id="navToggle">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="quote.html" class="active">Get Help</a>
+        <a href="for-contractors.html">For Contractors</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="quote.html" class="nav-cta">Get connected →</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Get help from licensed Utah HVAC shops</h1>
+      <p>Connect with local licensed pros. Free for homeowners. No obligation.</p>
+    </div>
+  </div>
+
+  <div class="container form-wrap">
+    <div class="progress-labels">
+      <span>Service</span>
+      <span>Location</span>
+      <span>Contact</span>
+      <span>Consent</span>
+    </div>
+    <div class="progress" id="progress" aria-hidden="true">
+      <div class="progress-step active" data-step="1"></div>
+      <div class="progress-step" data-step="2"></div>
+      <div class="progress-step" data-step="3"></div>
+      <div class="progress-step" data-step="4"></div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <form id="leadForm" novalidate>
+        <!-- STEP 1 -->
+        <div class="form-step active" data-step="1">
+          <h2>What do you need?</h2>
+          <p class="step-desc">Select the service type and how soon you need help.</p>
+
+          <div class="field">
+            <label>Service type</label>
+            <div class="radio-group" role="radiogroup" aria-label="Service type">
+              <div class="radio-option">
+                <input type="radio" name="serviceType" id="svc-repair" value="repair" required>
+                <label for="svc-repair">Repair</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="serviceType" id="svc-replace" value="replace">
+                <label for="svc-replace">Replace</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="serviceType" id="svc-install" value="install">
+                <label for="svc-install">Install</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="serviceType" id="svc-tuneup" value="tune-up">
+                <label for="svc-tuneup">Tune-up</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="serviceType" id="svc-unsure" value="unsure">
+                <label for="svc-unsure">I'm not sure</label>
+              </div>
+            </div>
+            <div class="field-error" id="err-serviceType">Please select a service type.</div>
+          </div>
+
+          <div class="field">
+            <label>Urgency</label>
+            <div class="radio-group cols-3" role="radiogroup" aria-label="Urgency">
+              <div class="radio-option">
+                <input type="radio" name="urgency" id="urg-today" value="today" required>
+                <label for="urg-today">Today</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="urgency" id="urg-week" value="this week">
+                <label for="urg-week">This week</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="urgency" id="urg-planning" value="planning">
+                <label for="urg-planning">Planning</label>
+              </div>
+            </div>
+            <div class="field-error" id="err-urgency">Please select urgency.</div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" data-next>Continue →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" data-step="2">
+          <h2>Where is the home?</h2>
+          <p class="step-desc">We use ZIP to match licensed contractors near you.</p>
+
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input type="text" id="zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 84095" required autocomplete="postal-code">
+            <div class="field-error" id="err-zip">Enter a valid 5-digit ZIP.</div>
+          </div>
+
+          <div class="field">
+            <label for="city">City <span class="optional">(optional)</span></label>
+            <input type="text" id="city" name="city" placeholder="e.g. South Jordan" autocomplete="address-level2">
+          </div>
+
+          <div class="field">
+            <label>Are you the homeowner?</label>
+            <div class="radio-group" role="radiogroup" aria-label="Homeowner">
+              <div class="radio-option">
+                <input type="radio" name="homeowner" id="ho-yes" value="yes" required>
+                <label for="ho-yes">Yes</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="homeowner" id="ho-no" value="no">
+                <label for="ho-no">No</label>
+              </div>
+            </div>
+            <div class="field-error" id="err-homeowner">Please indicate if you are the homeowner.</div>
+          </div>
+
+          <div class="field">
+            <label for="systemAge">System age <span class="optional">(optional)</span></label>
+            <select id="systemAge" name="systemAge">
+              <option value="">Select if known…</option>
+              <option value="under 5">Under 5 years</option>
+              <option value="5–10">5–10 years</option>
+              <option value="10–15">10–15 years</option>
+              <option value="15+">15+ years</option>
+              <option value="unsure">Unsure</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" data-back>← Back</button>
+            <button type="button" class="btn btn-primary" data-next>Continue →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step" data-step="3">
+          <h2>How can we reach you?</h2>
+          <p class="step-desc">Light contact info only — no SSN, DOB, or payment details.</p>
+
+          <div class="name-row">
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
+              <div class="field-error" id="err-firstName">First name is required.</div>
+            </div>
+            <div class="field">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
+              <div class="field-error" id="err-lastName">Last name is required.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mobile">Mobile phone</label>
+            <input type="tel" id="mobile" name="mobile" required autocomplete="tel" placeholder="(801) 555-0100" inputmode="tel">
+            <div class="field-error" id="err-mobile">Enter a valid 10-digit US mobile number.</div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+            <div class="field-error" id="err-email">Enter a valid email address.</div>
+          </div>
+
+          <div class="field">
+            <label>Preferred contact window</label>
+            <div class="radio-group cols-3" role="radiogroup" aria-label="Preferred contact window">
+              <div class="radio-option">
+                <input type="radio" name="contactWindow" id="cw-morning" value="morning" required>
+                <label for="cw-morning">Morning</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="contactWindow" id="cw-afternoon" value="afternoon">
+                <label for="cw-afternoon">Afternoon</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="contactWindow" id="cw-evening" value="evening">
+                <label for="cw-evening">Evening</label>
+              </div>
+            </div>
+            <div class="field-error" id="err-contactWindow">Please select a contact window.</div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" data-back>← Back</button>
+            <button type="button" class="btn btn-primary" data-next>Continue →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step" data-step="4">
+          <h2>Confirm &amp; submit</h2>
+          <p class="step-desc">One more step — please confirm how you’d like to be contacted about this request.</p>
+
+          <div class="consent-box" id="consentBox">
+            <div class="consent-row">
+              <input type="checkbox" id="tcpaConsent" name="tcpaConsent" value="yes" required>
+              <label for="tcpaConsent">
+                Yes, licensed HVAC contractors may call or text me about this request at the number I provided.
+                Msg/data rates may apply. Consent is not a condition of purchase.
+                See our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.
+              </label>
+            </div>
+            <div class="field-error" id="err-tcpaConsent">Please check the box to continue.</div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" data-back>← Back</button>
+            <button type="submit" class="btn btn-primary">Submit request</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Success (draft mode) -->
+      <div class="success-screen" id="successScreen">
+        <div class="success-icon">✓</div>
+        <h2>Request received (draft)</h2>
+        <p style="color:var(--slate-600);font-size:0.95rem;">
+          Thanks — in production, licensed pros in your area would reach out about your request.
+          Here’s what would be sent to matching contractors.
+        </p>
+        <div class="draft-banner">Draft mode — lead not saved</div>
+        <div class="payload-preview" id="payloadPreview"></div>
+        <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+          <a href="thanks.html" class="btn btn-primary">View thanks page</a>
+          <a href="index.html" class="btn btn-secondary">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Utah HVAC Connect</div>
+          <p class="footer-domain"><a href="https://utahhvacconnect.com">utahhvacconnect.com</a></p>
+          <p class="footer-disclaimer">
+            We match homeowners with licensed Utah HVAC contractors. We are not an HVAC contractor, do not perform HVAC work, and do not provide quotes.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Homeowners</h4>
+          <a href="quote.html">Get connected</a>
+          <a href="index.html#how-it-works">How it works</a>
+          <a href="privacy.html">Privacy policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contractors</h4>
+          <a href="for-contractors.html">Partner with us</a>
+          <a href="mailto:samueljohnsen3@gmail.com">Request info</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Utah HVAC Connect. All rights reserved.</span>
+        <span class="footer-placeholder"><!-- Brand: Utah HVAC Connect · utahhvacconnect.com. Matchmaker positioning — CTAs connect homeowners with licensed shops; we do not provide quotes. --></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    (function () {
+      var current = 1;
+      var total = 4;
+      var form = document.getElementById('leadForm');
+      var success = document.getElementById('successScreen');
+
+      function showStep(n) {
+        current = n;
+        document.querySelectorAll('.form-step').forEach(function (el) {
+          el.classList.toggle('active', parseInt(el.dataset.step, 10) === n);
+        });
+        document.querySelectorAll('.progress-step').forEach(function (el) {
+          var s = parseInt(el.dataset.step, 10);
+          el.classList.toggle('active', s === n);
+          el.classList.toggle('done', s < n);
+        });
+        window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
+      }
+
+      function clearErrors(stepEl) {
+        stepEl.querySelectorAll('.field-error').forEach(function (e) { e.classList.remove('show'); });
+        stepEl.querySelectorAll('.error').forEach(function (e) { e.classList.remove('error'); });
+        var box = stepEl.querySelector('#consentBox');
+        if (box) box.classList.remove('error-border');
+      }
+
+      function showErr(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('show');
+      }
+
+      function radioChecked(name) {
+        return !!form.querySelector('input[name="' + name + '"]:checked');
+      }
+
+      function validateStep(n) {
+        var stepEl = form.querySelector('.form-step[data-step="' + n + '"]');
+        clearErrors(stepEl);
+        var ok = true;
+
+        if (n === 1) {
+          if (!radioChecked('serviceType')) { showErr('err-serviceType'); ok = false; }
+          if (!radioChecked('urgency')) { showErr('err-urgency'); ok = false; }
+        }
+
+        if (n === 2) {
+          var zip = document.getElementById('zip');
+          if (!/^\d{5}$/.test(zip.value.trim())) {
+            zip.classList.add('error');
+            showErr('err-zip');
+            ok = false;
+          }
+          if (!radioChecked('homeowner')) { showErr('err-homeowner'); ok = false; }
+        }
+
+        if (n === 3) {
+          var fn = document.getElementById('firstName');
+          var ln = document.getElementById('lastName');
+          var mobile = document.getElementById('mobile');
+          var email = document.getElementById('email');
+          if (!fn.value.trim()) { fn.classList.add('error'); showErr('err-firstName'); ok = false; }
+          if (!ln.value.trim()) { ln.classList.add('error'); showErr('err-lastName'); ok = false; }
+          var digits = mobile.value.replace(/\D/g, '');
+          if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1);
+          if (digits.length !== 10) {
+            mobile.classList.add('error');
+            showErr('err-mobile');
+            ok = false;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            email.classList.add('error');
+            showErr('err-email');
+            ok = false;
+          }
+          if (!radioChecked('contactWindow')) { showErr('err-contactWindow'); ok = false; }
+        }
+
+        if (n === 4) {
+          var consent = document.getElementById('tcpaConsent');
+          if (!consent.checked) {
+            document.getElementById('consentBox').classList.add('error-border');
+            showErr('err-tcpaConsent');
+            ok = false;
+          }
+        }
+
+        return ok;
+      }
+
+      function getVal(name) {
+        var el = form.elements[name];
+        if (!el) return '';
+        if (el.length && el[0].type === 'radio') {
+          var checked = form.querySelector('input[name="' + name + '"]:checked');
+          return checked ? checked.value : '';
+        }
+        if (el.type === 'checkbox') return el.checked ? 'yes' : 'no';
+        return (el.value || '').trim();
+      }
+
+      function buildPayload() {
+        return {
+          serviceType: getVal('serviceType'),
+          urgency: getVal('urgency'),
+          zip: getVal('zip'),
+          city: getVal('city') || '(not provided)',
+          homeowner: getVal('homeowner'),
+          systemAge: getVal('systemAge') || '(not provided)',
+          firstName: getVal('firstName'),
+          lastName: getVal('lastName'),
+          mobile: getVal('mobile'),
+          email: getVal('email'),
+          contactWindow: getVal('contactWindow'),
+          tcpaConsent: getVal('tcpaConsent'),
+          submittedAt: new Date().toLocaleString('en-US', { timeZone: 'America/Denver' }) + ' MT'
+        };
+      }
+
+      function renderSuccess(data) {
+        var labels = {
+          serviceType: 'Service type',
+          urgency: 'Urgency',
+          zip: 'ZIP',
+          city: 'City',
+          homeowner: 'Homeowner',
+          systemAge: 'System age',
+          firstName: 'First name',
+          lastName: 'Last name',
+          mobile: 'Mobile',
+          email: 'Email',
+          contactWindow: 'Contact window',
+          tcpaConsent: 'TCPA consent',
+          submittedAt: 'Would submit at'
+        };
+        var html = '<h3>What would be sent</h3><dl>';
+        Object.keys(labels).forEach(function (k) {
+          html += '<dt>' + labels[k] + '</dt><dd>' + (data[k] || '—') + '</dd>';
+        });
+        html += '</dl>';
+        document.getElementById('payloadPreview').innerHTML = html;
+        form.style.display = 'none';
+        document.querySelector('.progress-labels').style.display = 'none';
+        document.getElementById('progress').style.display = 'none';
+        success.classList.add('show');
+      }
+
+      form.querySelectorAll('[data-next]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (validateStep(current) && current < total) showStep(current + 1);
+        });
+      });
+
+      form.querySelectorAll('[data-back]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (current > 1) showStep(current - 1);
+        });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!validateStep(4)) return;
+        // Draft mode: no network save — preview only
+        var payload = buildPayload();
+        renderSuccess(payload);
+        try {
+          sessionStorage.setItem('hvacLeadDraft', JSON.stringify(payload));
+        } catch (err) { /* ignore */ }
+      });
+    })();
+  </script>
+</body>
+</html>
