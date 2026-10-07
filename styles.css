@@ -884,6 +884,19 @@ ul { list-style: none; }
   margin-bottom: 0.5rem;
 }
 
+.form-submit-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.form-submit-error[hidden] { display: none; }
+
 .draft-banner {
   background: var(--amber-100);
   color: #92400e;

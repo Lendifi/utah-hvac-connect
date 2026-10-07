@@ -140,8 +140,8 @@
             <select id="systemAge" name="systemAge">
               <option value="">Select if known…</option>
               <option value="under 5">Under 5 years</option>
-              <option value="5–10">5–10 years</option>
-              <option value="10–15">10–15 years</option>
+              <option value="5-10">5–10 years</option>
+              <option value="10-15">10–15 years</option>
               <option value="15+">15+ years</option>
               <option value="unsure">Unsure</option>
             </select>
@@ -225,26 +225,26 @@
             <div class="field-error" id="err-tcpaConsent">Please check the box to continue.</div>
           </div>
 
+          <div class="form-submit-error" id="submitError" role="alert" hidden></div>
+
           <div class="form-actions">
             <button type="button" class="btn btn-secondary" data-back>← Back</button>
-            <button type="submit" class="btn btn-primary">Submit request</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit request</button>
           </div>
         </div>
       </form>
 
-      <!-- Success (draft mode) -->
+      <!-- Success -->
       <div class="success-screen" id="successScreen">
         <div class="success-icon">✓</div>
-        <h2>Request received (draft)</h2>
+        <h2>Request received</h2>
         <p style="color:var(--slate-600);font-size:0.95rem;">
-          Thanks — in production, licensed pros in your area would reach out about your request.
-          Here’s what would be sent to matching contractors.
+          Thanks — licensed pros in your area will reach out about your request
+          during your preferred contact window.
         </p>
-        <div class="draft-banner">Draft mode — lead not saved</div>
-        <div class="payload-preview" id="payloadPreview"></div>
         <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
-          <a href="thanks.html" class="btn btn-primary">View thanks page</a>
-          <a href="index.html" class="btn btn-secondary">Back to home</a>
+          <a href="index.html" class="btn btn-primary">Back to home</a>
+          <a href="quote.html" class="btn btn-secondary">Submit another</a>
         </div>
       </div>
     </div>
@@ -285,10 +285,16 @@
     });
 
     (function () {
+      var SUPABASE_URL = 'https://cevwtjemggmnqprazabj.supabase.co';
+      var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNldnd0amVtZ2dtbnFwcmF6YWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzk5NzEsImV4cCI6MjEwNjkxNTk3MX0.EJuoAEn2eAEm_sdilk_pvR69qHWkVrOvv55SclOr4VE';
+
       var current = 1;
       var total = 4;
       var form = document.getElementById('leadForm');
       var success = document.getElementById('successScreen');
+      var submitBtn = document.getElementById('submitBtn');
+      var submitError = document.getElementById('submitError');
+      var submitting = false;
 
       function showStep(n) {
         current = n;
@@ -319,6 +325,12 @@
         return !!form.querySelector('input[name="' + name + '"]:checked');
       }
 
+      function normalizeMobile(raw) {
+        var digits = String(raw || '').replace(/\D/g, '');
+        if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1);
+        return digits;
+      }
+
       function validateStep(n) {
         var stepEl = form.querySelector('.form-step[data-step="' + n + '"]');
         clearErrors(stepEl);
@@ -346,9 +358,7 @@
           var email = document.getElementById('email');
           if (!fn.value.trim()) { fn.classList.add('error'); showErr('err-firstName'); ok = false; }
           if (!ln.value.trim()) { ln.classList.add('error'); showErr('err-lastName'); ok = false; }
-          var digits = mobile.value.replace(/\D/g, '');
-          if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1);
-          if (digits.length !== 10) {
+          if (normalizeMobile(mobile.value).length !== 10) {
             mobile.classList.add('error');
             showErr('err-mobile');
             ok = false;
@@ -384,50 +394,56 @@
         return (el.value || '').trim();
       }
 
-      function buildPayload() {
+      function mapSystemAge(raw) {
+        if (!raw) return null;
+        // Normalize en/em dashes to ASCII hyphen for DB check constraint
+        var v = raw.replace(/[\u2013\u2014]/g, '-');
+        var allowed = { 'under 5': 1, '5-10': 1, '10-15': 1, '15+': 1, 'unsure': 1 };
+        return allowed[v] ? v : null;
+      }
+
+      function buildLeadRow() {
+        var city = getVal('city');
         return {
-          serviceType: getVal('serviceType'),
+          service_type: getVal('serviceType'),
           urgency: getVal('urgency'),
           zip: getVal('zip'),
-          city: getVal('city') || '(not provided)',
-          homeowner: getVal('homeowner'),
-          systemAge: getVal('systemAge') || '(not provided)',
-          firstName: getVal('firstName'),
-          lastName: getVal('lastName'),
-          mobile: getVal('mobile'),
+          city: city || null,
+          homeowner: getVal('homeowner') === 'yes',
+          system_age: mapSystemAge(getVal('systemAge')),
+          first_name: getVal('firstName'),
+          last_name: getVal('lastName'),
+          mobile: normalizeMobile(getVal('mobile')),
           email: getVal('email'),
-          contactWindow: getVal('contactWindow'),
-          tcpaConsent: getVal('tcpaConsent'),
-          submittedAt: new Date().toLocaleString('en-US', { timeZone: 'America/Denver' }) + ' MT'
+          contact_window: getVal('contactWindow'),
+          tcpa_consent: true,
+          user_agent: navigator.userAgent || null,
+          referrer: document.referrer || null
         };
       }
 
-      function renderSuccess(data) {
-        var labels = {
-          serviceType: 'Service type',
-          urgency: 'Urgency',
-          zip: 'ZIP',
-          city: 'City',
-          homeowner: 'Homeowner',
-          systemAge: 'System age',
-          firstName: 'First name',
-          lastName: 'Last name',
-          mobile: 'Mobile',
-          email: 'Email',
-          contactWindow: 'Contact window',
-          tcpaConsent: 'TCPA consent',
-          submittedAt: 'Would submit at'
-        };
-        var html = '<h3>What would be sent</h3><dl>';
-        Object.keys(labels).forEach(function (k) {
-          html += '<dt>' + labels[k] + '</dt><dd>' + (data[k] || '—') + '</dd>';
-        });
-        html += '</dl>';
-        document.getElementById('payloadPreview').innerHTML = html;
+      function showSubmitError(msg) {
+        submitError.hidden = false;
+        submitError.textContent = msg;
+      }
+
+      function clearSubmitError() {
+        submitError.hidden = true;
+        submitError.textContent = '';
+      }
+
+      function renderSuccess() {
         form.style.display = 'none';
         document.querySelector('.progress-labels').style.display = 'none';
         document.getElementById('progress').style.display = 'none';
         success.classList.add('show');
+        window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
+      }
+
+      function setSubmitting(on) {
+        submitting = on;
+        submitBtn.disabled = on;
+        submitBtn.textContent = on ? 'Submitting…' : 'Submit request';
       }
 
       form.querySelectorAll('[data-next]').forEach(function (btn) {
@@ -444,13 +460,46 @@
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (submitting) return;
         if (!validateStep(4)) return;
-        // Draft mode: no network save — preview only
-        var payload = buildPayload();
-        renderSuccess(payload);
-        try {
-          sessionStorage.setItem('hvacLeadDraft', JSON.stringify(payload));
-        } catch (err) { /* ignore */ }
+        clearSubmitError();
+
+        var row = buildLeadRow();
+        setSubmitting(true);
+
+        fetch(SUPABASE_URL + '/rest/v1/leads', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(row)
+        }).then(function (res) {
+          if (res.ok || res.status === 201) {
+            try { sessionStorage.removeItem('hvacLeadDraft'); } catch (err) { /* ignore */ }
+            // Prefer dedicated thanks page; fall back to in-page success if redirect fails
+            window.location.href = 'thanks.html';
+            return;
+          }
+          return res.text().then(function (text) {
+            var detail = '';
+            try {
+              var j = JSON.parse(text);
+              detail = j.message || j.error_description || j.hint || '';
+            } catch (err) {
+              detail = text ? text.slice(0, 180) : '';
+            }
+            throw new Error(detail || ('Save failed (HTTP ' + res.status + ').'));
+          });
+        }).catch(function (err) {
+          setSubmitting(false);
+          showSubmitError(
+            'We could not save your request. Please try again in a moment. ' +
+            (err && err.message ? '(' + err.message + ')' : '')
+          );
+        });
       });
     })();
   </script>
