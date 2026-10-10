@@ -1124,3 +1124,51 @@ ul { list-style: none; }
   opacity: 1;
   text-decoration: underline;
 }
+
+/* —— SEO playbook additions (Oct 2026) —— */
+.footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+.prose ol { padding-left: 1.35rem; margin-bottom: 1rem; }
+.prose ol li { padding-left: 0.2rem; }
+.article-meta { font-size: 0.85rem !important; color: var(--slate-500) !important; margin-bottom: 1.25rem !important; }
+.tldr {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  border-left: 4px solid var(--blue-600);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 0 0 1.5rem;
+}
+.prose .tldr h2 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+.toc {
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 0 0 1.75rem;
+}
+.prose .toc h2 { margin: 0 0 0.5rem; font-size: 1rem; }
+.prose .toc li { margin-bottom: 0.3rem; font-size: 0.92rem; }
+.table-wrap { overflow-x: auto; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.5rem;
+  font-size: 0.88rem;
+  background: white;
+  border: 1px solid var(--slate-200);
+}
+.data-table caption { text-align: left; font-weight: 600; color: var(--blue-900); padding: 0 0 0.5rem; font-size: 0.9rem; }
+.data-table th, .data-table td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--slate-200); vertical-align: top; color: var(--slate-700); }
+.data-table th { background: var(--blue-50); color: var(--blue-900); font-weight: 600; }
+.prose .table-note { font-size: 0.8rem; color: var(--slate-500); }
+.method-note {
+  background: var(--slate-100);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem 0.25rem;
+  margin: 2rem 0 1rem;
+}
+.prose .method-note h2 { margin-top: 0; font-size: 1.05rem; }
+.prose .method-note p { font-size: 0.88rem; }
+.prose ol.sources li { font-size: 0.82rem; margin-bottom: 0.35rem; }
