@@ -1172,3 +1172,9 @@ ul { list-style: none; }
 .prose .method-note h2 { margin-top: 0; font-size: 1.05rem; }
 .prose .method-note p { font-size: 0.88rem; }
 .prose ol.sources li { font-size: 0.82rem; margin-bottom: 0.35rem; }
+
+/* —— Article figures (Oct 12 2026) —— */
+.article-figure { margin: 1.5rem 0 1.75rem; }
+.article-figure img { width: 100%; height: auto; border: 1px solid var(--slate-200); border-radius: var(--radius); background: white; }
+.prose .article-figure figcaption { font-size: 0.8rem; color: var(--slate-500); margin-top: 0.5rem; line-height: 1.45; }
+.prose h3 { font-size: 1.02rem; color: var(--blue-900); margin: 1.4rem 0 0.5rem; }
