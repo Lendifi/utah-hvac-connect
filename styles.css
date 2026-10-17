@@ -548,3 +548,8 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); 
 .prose .article-figure figcaption { font-size: 0.8rem; color: var(--slate-500); margin-top: 0.5rem; line-height: 1.45; }
 @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
 .thanks-wrap { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* Post-launch fix (Oct 16, 2026): long email button overflowed at phone widths on for-contractors.html */
+@media (max-width: 600px) {
+  .mailto-cta .btn { white-space: normal; max-width: 100%; overflow-wrap: anywhere; text-align: center; }
+}
