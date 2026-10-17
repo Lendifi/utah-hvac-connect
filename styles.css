@@ -553,3 +553,5 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); 
 @media (max-width: 600px) {
   .mailto-cta .btn { white-space: normal; max-width: 100%; overflow-wrap: anywhere; text-align: center; }
 }
+/* Post-launch fix (Oct 16, 2026): table overflow:hidden clipped the first glyph of captions */
+.data-table caption { padding-left: .2rem; }
