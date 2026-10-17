@@ -7,6 +7,17 @@
   <meta name="description" content="Request a match with licensed Utah HVAC contractors in Salt Lake &amp; Utah County. ~2 min. Free for homeowners. Pros contact you — we don’t install or quote.">
   <link rel="canonical" href="https://utahhvacconnect.com/quote.html">
   <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0a1a2b">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Utah HVAC Connect">
+  <meta property="og:title" content="Get Matched with Licensed HVAC Pros | Utah HVAC Connect">
+  <meta property="og:description" content="Request a match with licensed Utah HVAC contractors in Salt Lake &amp; Utah County. About 2 minutes. Free for homeowners.">
+  <meta property="og:url" content="https://utahhvacconnect.com/quote.html">
+  <meta property="og:image" content="https://utahhvacconnect.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Utah HVAC Connect: get matched with licensed Utah HVAC shops">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
   <header class="site-header">
@@ -15,7 +26,7 @@
         <span class="logo-mark">UH</span>
         <span>Utah HVAC Connect</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Menu" id="navToggle">☰</button>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-controls="navLinks" id="navToggle">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="quote.html" class="active">Get Help</a>
@@ -27,13 +38,17 @@
   </header>
 
   <div class="page-header">
+    <div class="ridge" aria-hidden="true"><svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#24507a" opacity=".55" d="M0 70 L120 40 L230 62 L360 20 L470 55 L600 28 L720 60 L850 14 L980 52 L1100 30 L1230 58 L1340 26 L1440 46 L1440 110 L0 110Z"/><path fill="#ffffff" d="M0 92 L180 70 L360 88 L560 66 L760 90 L960 70 L1160 88 L1320 72 L1440 84 L1440 110 L0 110Z"/></svg></div>
     <div class="container">
+      <span class="eyebrow">Free match request · about 2 minutes</span>
       <h1>Get help from licensed Utah HVAC shops</h1>
       <p>Connect with local licensed pros. Free for homeowners. No obligation.</p>
     </div>
   </div>
 
-  <div class="container form-wrap">
+  <div class="container quote-layout">
+  <div class="form-wrap">
+   <div class="form-shell">
     <div class="progress-labels">
       <span>Service</span>
       <span>Location</span>
@@ -249,13 +264,39 @@
         </div>
       </div>
     </div>
+   </div>
+  </div>
+
+  <aside class="quote-aside" aria-label="About your request">
+    <div class="aside-card">
+      <h3>What happens next</h3>
+      <ol class="aside-steps">
+        <li>Your request goes to licensed Utah HVAC contractors serving your area.</li>
+        <li>Matched shops contact you about your request during your preferred contact window.</li>
+        <li>Review options from matched shops and hire who you want — or none at all.</li>
+      </ol>
+    </div>
+    <div class="aside-card">
+      <h3>Good to know</h3>
+      <ul class="aside-list">
+        <li>Free for homeowners. Contractors who receive leads pay us.</li>
+        <li>Light contact info only — no SSN, DOB, or payment details.</li>
+        <li>We’re a matchmaker: we don’t install, diagnose, or quote.</li>
+        <li>Check any license on DOPL’s free <a href="https://secure.utah.gov/llv/search/index.html" rel="noopener">Licensee Lookup</a>.</li>
+      </ul>
+    </div>
+    <div class="aside-card safety">
+      <h3>Smell gas?</h3>
+      <p>Don’t use this form. Leave the home, then call 911 or Enbridge Gas at <a href="tel:18007671689">1-800-767-1689</a> from outside.</p>
+    </div>
+  </aside>
   </div>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-brand">Utah HVAC Connect</div>
+          <div class="footer-brand"><span class="logo-mark" aria-hidden="true">UH</span>Utah HVAC Connect</div>
           <p class="footer-domain"><a href="https://utahhvacconnect.com">utahhvacconnect.com</a></p>
           <p class="footer-disclaimer">
             We match homeowners with licensed Utah HVAC contractors. We are not an HVAC contractor, do not perform HVAC work, and do not provide quotes.
@@ -523,6 +564,15 @@
           );
         });
       });
+    })();
+  </script>
+  <script>
+    // Mockup addition: prefill ZIP when arriving from the homepage "Get matched" box (?zip=84043).
+    (function () {
+      try {
+        var z = new URLSearchParams(window.location.search).get('zip');
+        if (z && /^\d{5}$/.test(z)) document.getElementById('zip').value = z;
+      } catch (e) { /* ignore */ }
     })();
   </script>
 </body>
