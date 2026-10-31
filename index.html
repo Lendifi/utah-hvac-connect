@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Utah HVAC Connect | Salt Lake &amp; Utah County Match</title>
   <meta name="description" content="Connect with licensed HVAC pros in Salt Lake &amp; Utah County. Free homeowner request — we match you with local shops. No obligation. We don’t install or quote.">
   <link rel="canonical" href="https://utahhvacconnect.com/">
@@ -92,7 +92,7 @@
   }
   </script>
 </head>
-<body>
+<body class="home-scroll">
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="logo">
@@ -110,59 +110,196 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-stars" aria-hidden="true"></div>
-    <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d6a92"/><stop offset="1" stop-color="#22486c"/></linearGradient>
-            <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f4566"/><stop offset="1" stop-color="#14304b"/></linearGradient>
-            <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#11263c"/><stop offset="1" stop-color="#0a1a2b"/></linearGradient>
-            <radialGradient id="glow" cx="0.78" cy="0.35" r="0.35"><stop offset="0" stop-color="#ffb37a" stop-opacity=".55"/><stop offset="1" stop-color="#ffb37a" stop-opacity="0"/></radialGradient>
-          </defs>
-          <rect width="1440" height="420" fill="url(#glow)"/>
-          <path fill="url(#r1)" d="M0 250 L90 205 L170 228 L260 150 L330 190 L420 120 L500 170 L560 140 L640 196 L720 130 L790 96 L860 150 L930 118 L1010 170 L1090 110 L1160 150 L1240 92 L1320 140 L1440 112 L1440 420 L0 420Z"/>
-          <path fill="#eaf4ff" opacity=".9" d="M760 112 L790 96 L818 117 L803 114 L792 124 L778 114Z M1218 104 L1240 92 L1262 108 L1250 107 L1240 115 L1229 107Z M405 129 L420 120 L437 132 L425 131 L418 138Z M1076 119 L1090 110 L1106 121 L1094 121 L1088 127Z"/>
-          <path fill="url(#r2)" d="M0 300 L110 250 L210 282 L320 222 L430 268 L540 214 L650 262 L760 226 L880 276 L990 230 L1100 270 L1210 236 L1330 268 L1440 244 L1440 420 L0 420Z"/>
-          <path fill="url(#r3)" d="M0 352 L160 318 L330 344 L520 312 L700 346 L880 316 L1060 342 L1250 314 L1440 338 L1440 420 L0 420Z"/>
-        </svg>
-    </div>
-    <div class="container hero-grid">
-      <div>
-        <span class="hero-badge"><span class="dot" aria-hidden="true"></span> Licensed Utah contractors only</span>
-        <h1>Connect with <span class="warm">local licensed</span> HVAC&nbsp;pros <span class="cool">near&nbsp;you</span></h1>
-        <p class="hero-sub">
-          Serving Salt Lake County &amp; Utah County homeowners. Tell us what you need —
-          we match you with licensed HVAC shops in your area. Free to request, no obligation.
-        </p>
-        <div class="trust-row">
-          <div class="trust-item"><span class="check">✓</span> Licensed contractors only</div>
-          <div class="trust-item"><span class="check">✓</span> Free for homeowners</div>
-          <div class="trust-item"><span class="check">✓</span> No obligation</div>
+  <main>
+  <section class="scroll-stage" id="stage" aria-label="From a hot, stuffy house to a comfortable home">
+    <div class="stage-sticky">
+      <div class="stage-bg hot" aria-hidden="true"></div>
+      <div class="stage-bg cool" aria-hidden="true"></div>
+
+      <div class="container stage-grid">
+        <div>
+          <div class="purpose">
+            <span class="eyebrow">Free for Utah homeowners</span>
+            <h1>We connect you with <span class="cool">local Utah HVAC pros</span> who fix&nbsp;it.</h1>
+            <p class="purpose-sub">Tell us what is wrong with your heating or cooling. We match you with a licensed local HVAC pro who serves your ZIP. We are the matchmaker, not the contractor.</p>
+          </div>
+          <ol class="step-track" aria-label="How it works">
+            <li class="on" data-step="0"><span class="n">1</span> Your problem</li>
+            <li data-step="1"><span class="n">2</span> Tell us</li>
+            <li data-step="2"><span class="n">3</span> Get matched</li>
+          </ol>
+          <div class="meter" aria-hidden="true"><div class="meter-track"><span class="meter-knob"></span></div></div>
+          <div class="beats">
+            <div class="beat first" data-beat="0">
+              <h2>Upstairs is <span class="warm">88°F</span> and the air just sits there.</h2>
+              <p>Hot bedrooms, an AC that cannot keep up, a furnace acting up. Whatever it is, a local pro can fix it.</p>
+            </div>
+            <div class="beat" data-beat="1">
+              <h2>Tell us what is wrong.</h2>
+              <p>Share your ZIP and the problem in about a minute. Free for homeowners, no obligation.</p>
+            </div>
+            <div class="beat cool-beat" data-beat="2">
+              <h2>Get matched with a <span class="cool">licensed local pro</span> who can fix it.</h2>
+              <p>The pro handles the visit, the price, and the repair. We never quote or do the work. You decide who you talk to.</p>
+            </div>
+          </div>
+          <div class="scroll-hint" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            Scroll to see how it works
+          </div>
         </div>
-      </div>
-      <div class="hero-card" id="get-matched">
-        <h2>Request a match</h2>
-        <p>Takes about 2 minutes. We introduce you to licensed local shops — you decide next steps.</p>
-        <form class="zip-form" action="quote.html" method="get" id="zipForm" novalidate>
-          <label for="heroZip">Check your ZIP to start</label>
-          <div class="zip-row">
-            <input type="text" id="heroZip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 84043" autocomplete="postal-code" aria-describedby="zipMsg">
-            <button type="submit" class="btn btn-primary">Get matched →</button>
-          </div>
-          <div class="zip-msg" id="zipMsg" role="status"></div>
-        </form>
-        <ul class="card-points">
-          <li>Free for homeowners — contractors who receive leads pay us</li>
-          <li>You choose whether to talk with matched shops, or no one</li>
-          <li>We’re a matchmaker: no installs, no quotes from us</li>
-        </ul>
-        <div class="season-note">
-          <span aria-hidden="true">🌡️</span>
-          <div>
-            <strong>Seasonal tip</strong>
-            Hot summers &amp; cold winters — AC repair/replace peaks May–Sept; furnace season runs Oct–Feb. Plan ahead for installs.
-          </div>
+
+        <div class="art" aria-hidden="true">
+          <span class="art-chip" id="artChip"><span class="dot"></span><span id="artChipText">Stagnant air</span></span>
+          <svg id="scene" viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="card"><rect width="1000" height="760" rx="34"/></clipPath>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop id="skyTop" offset="0" stop-color="#e8572a"/>
+                <stop id="skyBot" offset="1" stop-color="#ffc07a"/>
+              </linearGradient>
+              <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#fff2c4" stop-opacity=".95"/>
+                <stop offset=".45" stop-color="#ffb35a" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#ff7a3d" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="heatTint" cx=".5" cy=".45" r=".7">
+                <stop offset="0" stop-color="#ff7a2a" stop-opacity=".1"/>
+                <stop offset="1" stop-color="#d23b2f" stop-opacity=".55"/>
+              </radialGradient>
+              <filter id="haze" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence id="turb" type="fractalNoise" baseFrequency="0.006 0.045" numOctaves="2" seed="4"/>
+                <feDisplacementMap id="disp" in="SourceGraphic" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+
+            <g clip-path="url(#card)">
+              <g id="world" filter="url(#haze)">
+                <rect x="-60" y="-60" width="1120" height="880" fill="url(#sky)"/>
+                <!-- sun -->
+                <g id="sun">
+                  <circle cx="830" cy="140" r="150" fill="url(#sunGlow)"/>
+                  <circle id="sunCore" cx="830" cy="140" r="54" fill="#fff0c2"/>
+                </g>
+                <!-- Wasatch -->
+                <path id="mtnBack" fill="#b5553a" d="M-60 440 L0 430 L90 360 L170 392 L260 300 L340 352 L430 262 L520 330 L600 290 L700 350 L790 280 L880 330 L1000 300 L1060 310 L1060 640 L-60 640Z"/>
+                <path fill="#fff" opacity=".85" d="M415 276 L430 262 L448 280 L436 278 L428 286 L421 279Z M775 294 L790 280 L806 296 L795 294 L789 301Z M248 312 L260 300 L274 315 L264 313 L258 320Z"/>
+                <path id="mtnFront" fill="#8a3a26" d="M-60 510 L0 500 L120 440 L230 478 L350 420 L470 470 L600 430 L730 476 L860 438 L1000 470 L1060 480 L1060 640 L-60 640Z"/>
+                <!-- ground -->
+                <rect id="ground" x="-60" y="636" width="1120" height="200" fill="#b89a52"/>
+                <rect id="ground2" x="-60" y="636" width="1120" height="10" fill="#9c7f3e"/>
+                <!-- tree -->
+                <rect x="95" y="520" width="16" height="120" rx="4" fill="#5b3a26"/>
+                <circle id="tree1" cx="103" cy="500" r="56" fill="#9a8a3c"/>
+                <circle id="tree2" cx="70" cy="530" r="36" fill="#8b7b32"/>
+                <circle id="tree3" cx="138" cy="528" r="38" fill="#8b7b32"/>
+
+                <!-- house -->
+                <polygon id="roof" points="168,306 450,136 732,306" fill="#5a3a2e"/>
+                <polygon id="attic" points="216,296 450,160 684,296" fill="#7a2f1d"/>
+                <rect id="wallOuter" x="200" y="300" width="500" height="344" fill="#e8c9a8"/>
+                <rect class="room" x="216" y="314" width="468" height="146" fill="#ffc9a0"/>
+                <rect class="room" x="216" y="476" width="468" height="152" fill="#ffc9a0"/>
+                <rect id="slab" x="200" y="460" width="500" height="16" fill="#4a3226"/>
+                <rect x="190" y="628" width="520" height="16" rx="3" fill="#3a2a22"/>
+                <!-- upstairs window -->
+                <rect x="556" y="336" width="104" height="82" rx="6" fill="#fff" />
+                <rect x="562" y="342" width="92" height="70" rx="3" fill="url(#sky)"/>
+                <rect x="606" y="342" width="4" height="70" fill="#fff"/>
+                <path id="curtL" d="M560 338 Q580 380 572 418 L560 418Z" fill="#c94f0b" opacity=".85"/>
+                <path id="curtR" d="M656 338 Q636 380 644 418 L656 418Z" fill="#c94f0b" opacity=".85"/>
+                <!-- bed -->
+                <rect x="244" y="392" width="12" height="62" rx="4" fill="#6b4a36"/>
+                <rect x="252" y="420" width="168" height="26" rx="8" fill="#fff"/>
+                <rect id="blanket" x="304" y="414" width="116" height="32" rx="8" fill="#e46a3a"/>
+                <ellipse cx="282" cy="416" rx="22" ry="9" fill="#fff"/>
+                <rect x="258" y="444" width="8" height="14" fill="#6b4a36"/><rect x="410" y="444" width="8" height="14" fill="#6b4a36"/>
+                <rect x="432" y="424" width="34" height="34" rx="4" fill="#8a5a3c"/>
+                <path d="M441 424 L457 424 L462 404 L436 404Z" fill="#fff3d6"/>
+                <!-- upstairs vent -->
+                <rect x="478" y="452" width="46" height="8" rx="2" fill="#2d3b48"/>
+                <path d="M484 452v8M492 452v8M500 452v8M508 452v8M516 452v8" stroke="#8aa0b2" stroke-width="2"/>
+                <!-- downstairs: window, couch, plant -->
+                <rect x="540" y="500" width="120" height="72" rx="6" fill="#fff"/>
+                <rect x="546" y="506" width="108" height="60" rx="3" fill="url(#sky)"/>
+                <rect x="598" y="506" width="4" height="60" fill="#fff"/>
+                <rect x="240" y="552" width="184" height="44" rx="12" id="couchBack" fill="#3b5a7a"/>
+                <rect x="230" y="584" width="204" height="34" rx="12" id="couchSeat" fill="#2f4a66"/>
+                <rect x="224" y="572" width="22" height="50" rx="9" fill="#26405a"/>
+                <rect x="418" y="572" width="22" height="50" rx="9" fill="#26405a"/>
+                <rect x="262" y="566" width="40" height="26" rx="8" fill="#ffd27a" opacity=".9"/>
+                <rect x="636" y="596" width="30" height="32" rx="4" fill="#a8603a"/>
+                <path id="plant" d="M651 598 C630 570 628 552 640 540 C648 560 650 572 651 598 C652 570 660 548 676 540 C680 560 668 580 651 598Z" fill="#7a8a3a"/>
+                <!-- downstairs vent -->
+                <rect x="556" y="622" width="50" height="8" rx="2" fill="#2d3b48"/>
+                <path d="M562 622v8M570 622v8M578 622v8M586 622v8M594 622v8M600 622v8" stroke="#8aa0b2" stroke-width="2"/>
+
+                <!-- outdoor AC condenser -->
+                <path d="M700 600 H736" stroke="#5a6672" stroke-width="5" fill="none"/>
+                <rect x="736" y="560" width="120" height="80" rx="10" fill="#c9d3dc"/>
+                <rect x="736" y="560" width="120" height="10" rx="5" fill="#aab6c2"/>
+                <circle cx="796" cy="604" r="30" fill="#36424e"/>
+                <g id="fan" transform="rotate(0 796 604)">
+                  <path d="M796 604 C786 586 790 578 798 576 C804 590 800 598 796 604Z M796 604 C814 596 822 600 822 608 C808 612 800 608 796 604Z M796 604 C800 622 794 630 786 628 C782 614 790 608 796 604Z M796 604 C778 612 770 606 770 598 C784 594 792 600 796 604Z" fill="#b8c4cf"/>
+                  <circle cx="796" cy="604" r="5" fill="#e6edf3"/>
+                </g>
+                <!-- stagnant air motes -->
+                <g id="motes" fill="#fff4e0">
+                  <circle class="mote" cx="330" cy="356" r="3"/><circle class="mote" cx="420" cy="342" r="2.5"/>
+                  <circle class="mote" cx="510" cy="380" r="3"/><circle class="mote" cx="360" cy="512" r="2.5"/>
+                  <circle class="mote" cx="470" cy="540" r="3"/><circle class="mote" cx="520" cy="590" r="2"/>
+                  <circle class="mote" cx="300" cy="500" r="2"/><circle class="mote" cx="640" cy="440" r="2.5"/>
+                </g>
+              </g>
+
+              <!-- heat waves (unfiltered so they stay crisp) -->
+              <g class="wave-layer" id="waves" fill="none" stroke="#ff8a3d" stroke-width="5" stroke-linecap="round" opacity="1">
+                <path class="wave" d="M350 132 q12 -14 0 -28 q-12 -14 0 -28"/>
+                <path class="wave" d="M450 112 q12 -14 0 -28 q-12 -14 0 -28"/>
+                <path class="wave" d="M550 132 q12 -14 0 -28 q-12 -14 0 -28"/>
+                <path class="wave" d="M330 396 q9 -11 0 -22 q-9 -11 0 -22" stroke="#e8461f" stroke-width="4"/>
+                <path class="wave" d="M500 404 q9 -11 0 -22 q-9 -11 0 -22" stroke="#e8461f" stroke-width="4"/>
+                <path class="wave" d="M390 548 q9 -11 0 -22 q-9 -11 0 -22" stroke="#e8461f" stroke-width="4"/>
+                <path class="wave" d="M520 586 q9 -11 0 -22 q-9 -11 0 -22" stroke="#e8461f" stroke-width="4"/>
+                <path class="wave" d="M60 640 q10 -12 0 -24 q-10 -12 0 -24"/>
+                <path class="wave" d="M900 650 q10 -12 0 -24 q-10 -12 0 -24"/>
+              </g>
+
+              <!-- airflow -->
+              <g id="flowGlow" opacity="0" fill="none" stroke="#9fd3ff" stroke-width="10" stroke-linecap="round" stroke-opacity=".22"><path d="M500 452 C480 410 400 392 290 378"/><path d="M502 452 C514 404 570 384 676 374"/><path d="M498 452 C460 432 380 446 272 404"/><path d="M581 620 C560 572 470 560 330 546"/><path d="M583 620 C612 580 640 548 676 520"/><path d="M579 620 C520 600 420 604 250 580"/><path d="M600 470 C560 500 480 500 260 496"/><path d="M860 586 C890 576 910 556 960 556"/><path d="M860 606 C900 606 920 596 980 600"/></g>
+              <g class="flow" id="flow" opacity="0" stroke-width="5">
+                <path d="M500 452 C480 410 400 392 290 378" stroke="#7cc7ff"/>
+                <path d="M502 452 C514 404 570 384 676 374" stroke="#b9e2ff"/>
+                <path d="M498 452 C460 432 380 446 272 404" stroke="#7cc7ff"/>
+                <path d="M581 620 C560 572 470 560 330 546" stroke="#7cc7ff"/>
+                <path d="M583 620 C612 580 640 548 676 520" stroke="#b9e2ff"/>
+                <path d="M579 620 C520 600 420 604 250 580" stroke="#7cc7ff"/>
+                <path d="M600 470 C560 500 480 500 260 496" stroke="#b9e2ff"/>
+                <path d="M860 586 C890 576 910 556 960 556" stroke="#d9efff"/>
+                <path d="M860 606 C900 606 920 596 980 600" stroke="#d9efff"/>
+              </g>
+
+              <rect class="haze-tint" id="tint" width="1000" height="760" fill="url(#heatTint)" opacity=".45" style="mix-blend-mode:multiply"/>
+
+              <!-- labels + thermostat on top, never distorted -->
+              <g id="upLabel" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                <rect x="232" y="326" width="164" height="38" rx="19" fill="#0a1a2b" opacity=".82"/>
+                <text x="250" y="351" font-size="17" font-weight="800" fill="#fff" letter-spacing=".04em">UPSTAIRS</text>
+                <text id="upTemp" x="340" y="351" font-size="18" font-weight="900" fill="#ff8a3d">88°F</text>
+              </g>
+              <g id="thermo" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                <rect x="452" y="494" width="76" height="92" rx="14" fill="#f4f7fa" stroke="#c9d3dc" stroke-width="2"/>
+                <rect id="thermoScreen" x="462" y="504" width="56" height="48" rx="8" fill="#3a0f06"/>
+                <text id="thermoTemp" x="490" y="538" text-anchor="middle" font-size="24" font-weight="900" fill="#ff7a3d">84°</text>
+                <circle id="thermoLed" cx="490" cy="568" r="5" fill="#ff5a2a"/>
+                <g class="sweat" id="sweat" fill="#9fd3ff">
+                  <path class="drop" d="M470 588 q4 7 0 10 q-4 -3 0 -10Z"/>
+                  <path class="drop" d="M492 588 q4 7 0 10 q-4 -3 0 -10Z"/>
+                  <path class="drop" d="M512 588 q4 7 0 10 q-4 -3 0 -10Z"/>
+                </g>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
@@ -336,6 +473,8 @@
     </div>
   </section>
 
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -386,18 +525,11 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
-      t.addEventListener('click', function () { var o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o ? 'true' : 'false'); });
-      var f = document.getElementById('zipForm'), z = document.getElementById('heroZip'), m = document.getElementById('zipMsg');
-      f.addEventListener('submit', function (e) {
-        var v = z.value.trim();
-        z.classList.remove('error'); m.textContent = '';
-        if (!/^\d{5}$/.test(v)) { e.preventDefault(); z.classList.add('error'); m.textContent = 'Enter a valid 5-digit ZIP.'; z.focus(); return; }
-        if (v.slice(0, 2) !== '84') { e.preventDefault(); z.classList.add('error'); m.textContent = 'We only match Utah homes right now (Utah ZIPs start with 84).'; }
-      });
-    })();
-  </script>
+  <aside class="sticky-cta" aria-label="Get matched">
+    <div><strong id="ctaLine">HVAC problem? Get matched with a local pro.</strong><small>Free for homeowners. We are not the contractor.</small></div>
+    <a class="btn btn-primary" href="quote.html">Get matched</a>
+  </aside>
+
+  <script src="scroll.js"></script>
 </body>
 </html>
